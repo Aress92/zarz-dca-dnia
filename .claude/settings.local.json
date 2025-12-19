@@ -20,7 +20,23 @@
       "Bash(export PATH=\"$USERPROFILE/.cargo/bin:$PATH\")",
       "Bash(cmd.exe /c \"set PATH=%USERPROFILE%\\.cargo\\bin;%PATH% && npm run tauri:build\")",
       "Bash(/c/Users/aress/.cargo/bin/cargo.exe metadata:*)",
-      "Bash(export PATH=\"/c/Users/aress/.cargo/bin:$PATH\")"
+      "Bash(export PATH=\"/c/Users/aress/.cargo/bin:$PATH\")",
+      "Bash(tree:*)",
+      "Bash(cat:*)",
+      "Bash(wc:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run tauri:*)",
+      "Bash(dir /s *.msi *.exe)",
+      "Bash(findstr:*)",
+      "Bash(dir:*)",
+      "Bash(\"E:\\\\Projekty\\\\Zarzadzanie\\\\zarzadca\\\\zarz-dca-dnia\\\\src-tauri\\\\target\\\\release\\\\zarzadca-dnia.exe\")",
+      "Bash(start \"\" \"E:\\\\Projekty\\\\Zarzadzanie\\\\zarzadca\\\\zarz-dca-dnia\\\\src-tauri\\\\target\\\\release\\\\zarzadca-dnia.exe\")",
+      "Bash(tasklist:*)",
+      "Bash(cmd /c \"zarzadca-dnia.exe 2>&1\")",
+      "Bash(timeout /t 15 /nobreak)",
+      "Bash(zarzadca-dnia.exe)",
+      "Bash(E:/Projekty/Zarzadzanie/zarzadca/zarz-dca-dnia/src-tauri/target/release/zarzadca-dnia.exe)",
+      "Bash(timeout /t 5 /nobreak)"
     ]
   }
 }

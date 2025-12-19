@@ -1,0 +1,14 @@
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\serde-ea5f26d50456d647.d: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\build\serde-a75bef8c6c9d2ef7\out/private.rs
+
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\libserde-ea5f26d50456d647.rlib: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\build\serde-a75bef8c6c9d2ef7\out/private.rs
+
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\libserde-ea5f26d50456d647.rmeta: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\build\serde-a75bef8c6c9d2ef7\out/private.rs
+
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs:
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\build\serde-a75bef8c6c9d2ef7\out/private.rs:
+
+# env-dep:OUT_DIR=E:\\Projekty\\Zarzadzanie\\zarzadca\\zarz-dca-dnia\\src-tauri\\target\\debug\\build\\serde-a75bef8c6c9d2ef7\\out

@@ -1,7 +1,7 @@
 // Widok ustawień
 
-import React, { useState } from 'react';
-import { AppSettings, EmailSettings } from '@/types';
+import React, { useState, useEffect } from 'react';
+import { AppSettings, EmailSettings, WidgetSettings, DEFAULT_WIDGET_SETTINGS } from '@/types';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -9,11 +9,12 @@ import { Switch } from '@/components/ui/switch';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Settings, Bell, Mail, Moon, Download, Upload, Send, AlertCircle, CheckCircle } from 'lucide-react';
+import { Settings, Bell, Mail, Moon, Download, Upload, Send, AlertCircle, CheckCircle, LayoutGrid, Power, ExternalLink } from 'lucide-react';
 import { useTheme } from '@/app/ThemeProvider';
 import { notificationAdapter, getNotificationStatus } from '@/lib/desktop/notifications';
 import { emailAdapter } from '@/lib/desktop/email';
 import { secretsAdapter, SECRET_KEYS } from '@/lib/desktop/secrets';
+import { widgetAdapter, autostartAdapter } from '@/lib/desktop/widget';
 import { exportData, importData } from '@/lib/storage/db';
 import { useToast } from '@/hooks/use-toast';
 
@@ -25,13 +26,38 @@ interface SettingsViewProps {
 export function SettingsView({ settings, onSave }: SettingsViewProps) {
   const { theme, setTheme } = useTheme();
   const { toast } = useToast();
-  const [localSettings, setLocalSettings] = useState(settings);
+  const [localSettings, setLocalSettings] = useState({
+    ...settings,
+    widgetSettings: settings.widgetSettings || DEFAULT_WIDGET_SETTINGS,
+  });
   const [smtpPassword, setSmtpPassword] = useState('');
   const [webhookToken, setWebhookToken] = useState('');
   const [emailTestStatus, setEmailTestStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [emailTestMessage, setEmailTestMessage] = useState('');
+  const [autostartEnabled, setAutostartEnabled] = useState(false);
+  const [autostartLoading, setAutostartLoading] = useState(true);
+  const [widgetOpen, setWidgetOpen] = useState(false);
 
   const notificationStatus = getNotificationStatus();
+
+  // Sprawdź stan autostartu przy ładowaniu
+  useEffect(() => {
+    async function checkAutostart() {
+      const enabled = await autostartAdapter.isEnabled();
+      setAutostartEnabled(enabled);
+      setAutostartLoading(false);
+    }
+    checkAutostart();
+  }, []);
+
+  // Sprawdź czy widget jest otwarty
+  useEffect(() => {
+    async function checkWidget() {
+      const isOpen = await widgetAdapter.isOpen();
+      setWidgetOpen(isOpen);
+    }
+    checkWidget();
+  }, []);
 
   const handleSave = async () => {
     // Zapisz sekrety jeśli wprowadzone
@@ -149,6 +175,60 @@ export function SettingsView({ settings, onSave }: SettingsViewProps) {
         ...updates,
       },
     });
+  };
+
+  const updateWidgetSettings = (updates: Partial<WidgetSettings>) => {
+    setLocalSettings({
+      ...localSettings,
+      widgetSettings: {
+        ...localSettings.widgetSettings,
+        ...updates,
+      },
+    });
+  };
+
+  const handleAutostartToggle = async (enabled: boolean) => {
+    const success = await autostartAdapter.setEnabled(enabled);
+    if (success) {
+      setAutostartEnabled(enabled);
+      setLocalSettings({ ...localSettings, autoStartEnabled: enabled });
+      toast({
+        title: enabled ? 'Autostart włączony' : 'Autostart wyłączony',
+        description: enabled
+          ? 'Aplikacja uruchomi się automatycznie po starcie systemu'
+          : 'Aplikacja nie będzie uruchamiana automatycznie',
+      });
+    } else {
+      toast({
+        title: 'Błąd',
+        description: 'Nie udało się zmienić ustawień autostartu. Funkcja wymaga aplikacji Tauri.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const handleOpenWidget = async () => {
+    const success = await widgetAdapter.open();
+    if (success) {
+      setWidgetOpen(true);
+      toast({
+        title: 'Widget otwarty',
+        description: 'Widget został otwarty w osobnym oknie',
+      });
+    } else {
+      toast({
+        title: 'Informacja',
+        description: 'Widget wymaga aplikacji Tauri. W trybie deweloperskim niedostępny.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const handleCloseWidget = async () => {
+    const success = await widgetAdapter.close();
+    if (success) {
+      setWidgetOpen(false);
+    }
   };
 
   return (
@@ -410,6 +490,150 @@ export function SettingsView({ settings, onSave }: SettingsViewProps) {
                 Podaj adres e-mail, aby włączyć wysyłkę przypomnień
               </p>
             )}
+          </CardContent>
+        </Card>
+
+        {/* Autostart */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Power className="h-5 w-5" />
+              Autostart
+            </CardTitle>
+            <CardDescription>
+              Automatyczne uruchamianie aplikacji po starcie systemu
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <Label>Uruchamiaj przy starcie systemu</Label>
+                <p className="text-sm text-muted-foreground">
+                  Aplikacja uruchomi się automatycznie po zalogowaniu
+                </p>
+              </div>
+              <Switch
+                checked={autostartEnabled}
+                onCheckedChange={handleAutostartToggle}
+                disabled={autostartLoading}
+              />
+            </div>
+            {!autostartLoading && (
+              <p className="text-sm text-muted-foreground flex items-center gap-2">
+                {autostartEnabled ? (
+                  <>
+                    <CheckCircle className="h-4 w-4 text-primary" />
+                    Autostart jest włączony
+                  </>
+                ) : (
+                  <>
+                    <AlertCircle className="h-4 w-4" />
+                    Autostart jest wyłączony
+                  </>
+                )}
+              </p>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Widget na pulpicie */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <LayoutGrid className="h-5 w-5" />
+              Widget na pulpicie
+            </CardTitle>
+            <CardDescription>
+              Mały widget z kalendarzem i przypomnieniami
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <Label>Włącz widget</Label>
+                <p className="text-sm text-muted-foreground">
+                  Pokaż mini-widget zawsze na wierzchu
+                </p>
+              </div>
+              <Switch
+                checked={localSettings.widgetSettings.enabled}
+                onCheckedChange={(checked) => updateWidgetSettings({ enabled: checked })}
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div>
+                <Label>Otwieraj przy starcie</Label>
+                <p className="text-sm text-muted-foreground">
+                  Automatycznie otwórz widget przy uruchomieniu aplikacji
+                </p>
+              </div>
+              <Switch
+                checked={localSettings.widgetSettings.showOnStartup}
+                onCheckedChange={(checked) => updateWidgetSettings({ showOnStartup: checked })}
+              />
+            </div>
+
+            <Separator />
+
+            <div className="space-y-3">
+              <Label>Zawartość widgetu</Label>
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Pokaż kalendarz</span>
+                <Switch
+                  checked={localSettings.widgetSettings.showCalendar}
+                  onCheckedChange={(checked) => updateWidgetSettings({ showCalendar: checked })}
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Pokaż przypomnienia</span>
+                <Switch
+                  checked={localSettings.widgetSettings.showReminders}
+                  onCheckedChange={(checked) => updateWidgetSettings({ showReminders: checked })}
+                />
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Maks. przypomnień</span>
+                <Select
+                  value={String(localSettings.widgetSettings.maxRemindersToShow)}
+                  onValueChange={(v) => updateWidgetSettings({ maxRemindersToShow: parseInt(v) })}
+                >
+                  <SelectTrigger className="w-[100px]">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="3">3</SelectItem>
+                    <SelectItem value="5">5</SelectItem>
+                    <SelectItem value="7">7</SelectItem>
+                    <SelectItem value="10">10</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div className="flex gap-2">
+              {!widgetOpen ? (
+                <Button variant="outline" onClick={handleOpenWidget}>
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Otwórz widget
+                </Button>
+              ) : (
+                <Button variant="outline" onClick={handleCloseWidget}>
+                  <ExternalLink className="h-4 w-4 mr-2" />
+                  Zamknij widget
+                </Button>
+              )}
+            </div>
+
+            <p className="text-xs text-muted-foreground">
+              Widget jest dostępny tylko w aplikacji Tauri (po zbudowaniu jako .exe).
+              W trybie deweloperskim możesz przetestować widok pod adresem /#/widget.
+            </p>
           </CardContent>
         </Card>
 

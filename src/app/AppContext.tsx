@@ -4,6 +4,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback } fr
 import { Task, AppSettings, DEFAULT_SETTINGS, Reminder } from '@/types';
 import { initDatabase, getAllTasks, saveTask, deleteTask as dbDeleteTask, getSettings, saveSettings as dbSaveSettings, updateTasksOrder } from '@/lib/storage/db';
 import { reminderScheduler } from '@/lib/desktop/scheduler';
+import { widgetAdapter } from '@/lib/desktop/widget';
 import { useToast } from '@/hooks/use-toast';
 
 interface AppContextType {
@@ -54,6 +55,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
             description: reminder.description || task.description,
           });
         });
+
+        // Otwórz widget przy starcie jeśli ustawiono
+        if (loadedSettings.widgetSettings?.enabled && loadedSettings.widgetSettings?.showOnStartup) {
+          widgetAdapter.open();
+        }
       } catch (error) {
         console.error('Błąd inicjalizacji:', error);
         toast({

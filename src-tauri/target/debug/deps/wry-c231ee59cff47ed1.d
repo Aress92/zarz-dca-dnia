@@ -1,0 +1,11 @@
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\wry-c231ee59cff47ed1.d: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\error.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\proxy.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\web_context.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\mod.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\drag_drop.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\util.rs
+
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\libwry-c231ee59cff47ed1.rmeta: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\error.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\proxy.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\web_context.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\mod.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\drag_drop.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\util.rs
+
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\lib.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\error.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\proxy.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\web_context.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\mod.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\drag_drop.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\wry-0.53.5\src\webview2\util.rs:

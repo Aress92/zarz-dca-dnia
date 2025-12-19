@@ -50,10 +50,20 @@ export interface EmailSettings {
   };
 }
 
+export interface WidgetSettings {
+  enabled: boolean;
+  showOnStartup: boolean;
+  showCalendar: boolean;
+  showReminders: boolean;
+  maxRemindersToShow: number;
+}
+
 export interface AppSettings {
   desktopNotificationsEnabled: boolean;
   emailSettings: EmailSettings;
   theme: 'light' | 'dark' | 'system';
+  autoStartEnabled: boolean;
+  widgetSettings: WidgetSettings;
 }
 
 export interface AppData {
@@ -61,6 +71,14 @@ export interface AppData {
   tasks: Task[];
   settings: AppSettings;
 }
+
+export const DEFAULT_WIDGET_SETTINGS: WidgetSettings = {
+  enabled: false,
+  showOnStartup: false,
+  showCalendar: true,
+  showReminders: true,
+  maxRemindersToShow: 5,
+};
 
 export const DEFAULT_SETTINGS: AppSettings = {
   desktopNotificationsEnabled: true,
@@ -70,6 +88,8 @@ export const DEFAULT_SETTINGS: AppSettings = {
     method: 'smtp',
   },
   theme: 'system',
+  autoStartEnabled: false,
+  widgetSettings: DEFAULT_WIDGET_SETTINGS,
 };
 
 export const CURRENT_SCHEMA_VERSION = 1;

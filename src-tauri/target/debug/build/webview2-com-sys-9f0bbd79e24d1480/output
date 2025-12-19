@@ -1,0 +1,2 @@
+cargo:rustc-link-search=native=E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\build\webview2-com-sys-9f0bbd79e24d1480\out\x64
+cargo:rustc-link-lib=advapi32

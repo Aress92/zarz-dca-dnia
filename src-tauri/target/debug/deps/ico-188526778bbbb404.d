@@ -1,0 +1,12 @@
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\ico-188526778bbbb404.d: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\macros.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\bmpdepth.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\icondir.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\image.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\restype.rs
+
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\libico-188526778bbbb404.rlib: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\macros.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\bmpdepth.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\icondir.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\image.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\restype.rs
+
+E:\Projekty\Zarzadzanie\zarzadca\zarz-dca-dnia\src-tauri\target\debug\deps\libico-188526778bbbb404.rmeta: C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\lib.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\macros.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\bmpdepth.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\icondir.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\image.rs C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\restype.rs
+
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\lib.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\macros.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\bmpdepth.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\icondir.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\image.rs:
+C:\Users\aress\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\ico-0.4.0\src\restype.rs:
