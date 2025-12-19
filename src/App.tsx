@@ -8,10 +8,15 @@ import WidgetView from "./features/widget/WidgetView";
 
 const queryClient = new QueryClient();
 
-// Sprawdź czy to okno widgetu (via hash routing)
+// Sprawdź czy to okno widgetu (via query param lub hash)
 const isWidgetView = () => {
+  // Sprawdź query param (dla Tauri)
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('widget') === 'true') {
+    return true;
+  }
+  // Sprawdź hash (dla dev mode)
   const hash = window.location.hash;
-  // Obsługuje: #/widget, #widget, /#/widget
   return hash.includes('widget');
 };
 

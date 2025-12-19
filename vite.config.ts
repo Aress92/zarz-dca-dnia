@@ -9,18 +9,12 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 5173,
   },
+  // Relatywne ścieżki dla Tauri
+  base: "./",
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-    },
-  },
-  build: {
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, "index.html"),
-        widget: path.resolve(__dirname, "widget.html"),
-      },
     },
   },
 }));

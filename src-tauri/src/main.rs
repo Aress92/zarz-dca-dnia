@@ -13,11 +13,11 @@ fn open_widget(app: AppHandle) -> Result<(), String> {
         return Ok(());
     }
 
-    // Stwórz nowe okno widgetu - dedykowany plik widget.html
+    // Stwórz nowe okno widgetu - używamy query param dla detekcji
     WebviewWindowBuilder::new(
         &app,
         "widget",
-        WebviewUrl::App("widget.html".into())
+        WebviewUrl::App("index.html?widget=true".into())
     )
     .title("Zarządca Dnia - Widget")
     .inner_size(320.0, 400.0)
