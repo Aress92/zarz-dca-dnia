@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(npx tauri:*)",
+      "Bash(rustc:*)",
+      "Bash(cargo:*)",
+      "Bash(where:*)",
+      "Bash(where.exe:*)",
+      "Bash(winget install Rustlang.Rustup --accept-source-agreements --accept-package-agreements)",
+      "Bash(cmd /c \"set PATH=%USERPROFILE%\\.cargo\\bin;%PATH% && rustup default stable\")",
+      "Bash($env:PATH = \"$env:USERPROFILE\\.cargo\\bin;$env:PATH\")",
+      "Bash(rustup default:*)",
+      "Bash(\"$HOME/.cargo/bin/rustup\" default stable)",
+      "Bash(\"$USERPROFILE/.cargo/bin/rustup\" default stable)",
+      "Bash(\"$USERPROFILE/.cargo/bin/rustc\" --version)",
+      "Bash(\"$USERPROFILE/.cargo/bin/cargo\" --version)",
+      "Bash(PATH=\"$USERPROFILE/.cargo/bin:$PATH\" npm run tauri:build:*)",
+      "Bash(export PATH=\"$USERPROFILE/.cargo/bin:$PATH\")",
+      "Bash(cmd.exe /c \"set PATH=%USERPROFILE%\\.cargo\\bin;%PATH% && npm run tauri:build\")",
+      "Bash(/c/Users/aress/.cargo/bin/cargo.exe metadata:*)",
+      "Bash(export PATH=\"/c/Users/aress/.cargo/bin:$PATH\")"
+    ]
+  }
+}
